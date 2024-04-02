@@ -70,4 +70,9 @@ print("\nAjustando o nome da coluna \"Qtde. Teorica\".")
 # Logical validation with if + new column - check if the variation has gone up "Subiu" or down "Desceu"
 df_principal['Resultado'] = df_principal['variacao_rs'].apply(lambda x: 'Subiu' if x > 0 else ('Desceu' if x < 0 else 'Estavel'))
 print("\nValidação lógica com if + nova coluna - verificando se a variação subiu ou desceu.")
+#print(df_principal)
+
+# Merge with "ativo" vs "nome da empresa"
+df_principal = df_principal.merge(df_ticker, left_on='Ativo', right_on='Ticker',how='left')
+print("\nMerge with \"ativo\" vs \"nome da empresa\".")
 print(df_principal)
