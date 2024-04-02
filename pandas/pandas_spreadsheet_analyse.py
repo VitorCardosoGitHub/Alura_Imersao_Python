@@ -91,3 +91,16 @@ print("\nMerge entre \"nome\" vs \"segmento\".")
 df_principal = df_principal.drop(columns=['Nome da Empresa'])
 print("\nRemovendo coluna \"Nome da Empresa\".")
 print(df_principal)
+
+# Renaming column 'Idade (em anos)'
+df_principal = df_principal.rename(columns={'Idade (em anos)':'Idade'})
+print("\nRenomeando coluna \"Idade (Em anos)\".")
+#print(df_principal)
+
+# Logical validation with if + new column - checking age of the company
+df_principal['Cat_idade'] = df_principal['Idade'].apply(
+    lambda x: 'Mais de 100' 
+    if x > 100 else ('Menos de 50' 
+    if x < 50 else 'Entre 50 e 100'))
+print("\nValidação lógica com if + nova coluna - Conferindo idade da empresa.")
+print(df_principal)
