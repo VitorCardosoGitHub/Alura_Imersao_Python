@@ -132,20 +132,20 @@ print(f"Media de quem desceu\tR$ {media_desceu:,.2f}")
 
 # Creating a new DF only with 'Subiu' values 
 df_principal_subiu = df_principal[df_principal['Resultado'] == 'Subiu']
-print("\nCriando novo DF apenas com valores que subiram")
+print("\nCriando novo DF apenas com valores que subiram.")
 #print(df_principal_subiu)
 
 # Adding values by segment
 df_analise_segmento = df_principal_subiu.groupby('Segmento')['variacao_rs'].sum().reset_index()
-print("\nSomando valores por segmento")
+print("\nSomando valores por segmento.")
 #print(df_analise_segmento)
 
 # Grouping and summing segments 'subiu', 'estavel' e 'desceu'
 df_analise_saldo = df_principal.groupby('Resultado')['variacao_rs'].sum().reset_index()
-print("\nAgrupamento e soma dos segmentos \"subiu\", \"estavel\" e \"desceu\"")
+print("\nAgrupamento e soma dos segmentos \"subiu\", \"estavel\" e \"desceu\".")
 #print(df_analise_saldo)
 
-# 
+# Graph - Analysis of 'Variacao em Reais por Resultado'
 fig = px.bar(df_analise_saldo, x='Resultado', y='variacao_rs', text='variacao_rs', title='Variacao Reais por Resultado')
-print("\nGrafico de analise da \"Variacao em Reais por Resultado\"")
+print("\nGrafico de analise da \"Variacao em Reais por Resultado\".\n")
 fig.show()
