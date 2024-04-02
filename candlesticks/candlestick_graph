@@ -8,10 +8,15 @@ from plotly.subplots import make_subplots
 
 # API YFinance: Download a financial market dataframe within a given time period
 dados = yf.download('PETR4.SA', start = '2023-01-01', end = '2023-12-31')
-print("\nBaixando o dataframe principal usando YFinance")
+print("\nBaixando o dataframe principal usando YFinance.")
 #print(dados)
 
 # Renaming DF columns (Esse modo renomeia todas as colunas de uma única vez, porém vocë é obrigado a renomar todas ao mesmo tempo)
 dados.columns = ['Abertura', 'Maximo', 'Minimo', 'Fechamento', 'Fech_Ajust', 'Volume']
-print("\nRenomeando colunas do DF")
+print("\nRenomeando colunas do DF.")
+#print(dados)
+
+# Renaming the index
+dados = dados.rename_axis('Data')
+print("\nRenomeando o índice.")
 #print(dados)
