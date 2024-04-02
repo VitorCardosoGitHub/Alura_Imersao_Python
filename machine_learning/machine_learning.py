@@ -27,3 +27,8 @@ modelo = Prophet( weekly_seasonality=True,
 modelo.add_country_holidays(country_name='US')
 print("\nTreinando e criando o modelo.")
 modelo.fit(dados_prophet_treino)
+
+# Creating future forecast dates until the end of 2023
+futuro = modelo.make_future_dataframe(periods=150)
+print("\nCriando futuras datas para previsão até o final de 2023.")
+previsao = modelo.predict(futuro)
