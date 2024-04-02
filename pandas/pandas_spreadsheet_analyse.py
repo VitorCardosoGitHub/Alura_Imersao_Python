@@ -134,3 +134,8 @@ print(f"Media de quem desceu\tR$ {media_desceu:,.2f}")
 df_principal_subiu = df_principal[df_principal['Resultado'] == 'Subiu']
 print("\nCriando novo DF apenas com valores que subiram")
 #print(df_principal_subiu)
+
+# Adding values by segment
+df_analise_segmento = df_principal_subiu.groupby('Segmento')['variacao_rs'].sum().reset_index()
+print("\nSomando valores por segmento")
+print(df_analise_segmento)
