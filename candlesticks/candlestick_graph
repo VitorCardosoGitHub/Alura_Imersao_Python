@@ -20,3 +20,21 @@ print("\nRenomeando colunas do DF.")
 dados = dados.rename_axis('Data')
 print("\nRenomeando o índice.")
 #print(dados)
+
+# Graph - Variation in the 'Fechamento' column
+dados['Fechamento'].plot(figsize=(10,6)) # Criando o gráfico com largura e altura
+plt.title('Variação do preço (Fechamento) por data', fontsize=16) # Inserindo título ao gráfico
+plt.legend(['Fechamento']) # Inserindo legenda
+print("\nGráfico – Variação na coluna \"Fechamento\".")
+
+# Loop para garantir uma entrada válida do usuário
+while True:
+    option_visualizar = input("\nDeseja visualizar o gráfico? \n(S) sim ou (N) nao: ")
+    if option_visualizar.upper() == "S":
+        plt.show()
+        break  # Sai do loop se a opção for 'S'
+    elif option_visualizar.upper() == "N":
+        print("\n")
+        break  # Sai do loop se a opção for 'N'
+    else:
+        print("Opção inválida! Digite S ou N para prosseguir.")
