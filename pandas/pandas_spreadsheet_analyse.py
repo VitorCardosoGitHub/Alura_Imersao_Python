@@ -46,3 +46,8 @@ print("\nMerge entre df_principal e df_total_acoes - Codigo.")
 df_principal = df_principal.drop(columns=['Código'])
 print("\nRemovendo coluna duplicada - codigo.")
 #print(df_principal)
+
+# Creating new analysis column - VARIACAO_RS
+df_principal['variacao_rs'] = (df_principal['valor_final'] - df_principal['Var_inicial'])*df_principal['Qtde. Teórica']
+print("\nCriando nova coluna de analise - VARIACAO_RS.")
+print(df_principal)
