@@ -182,3 +182,26 @@ while True:
         break  # Exit the loop if the option is 'N'
     else:
         print("Opção inválida! Digite S ou N para prosseguir.")
+
+# --------------------- Graphic - DOING EVERYTHING I DID PREVIOUSLY WITH JUST ONE LINE OF CODE ---------------------
+
+print("\nGerando candlestick com apenas uma linha de código.")
+
+# Downloading original data from DF again to remove changes
+dados = yf.download('PETR4.SA', start = '2023-01-01', end = '2023-12-31')
+
+# candlestick graph with just one line of code
+def plot_graph(style):
+    mpf.plot(dados.head(30), type='candle', figsize=(16, 8), volume=True, mav=(7, 14), style=style)
+
+# Loop to ensure valid user input
+while True:
+    option_visualizar = input("\nDeseja visualizar o gráfico? \n(S) sim ou (N) nao: ")
+    if option_visualizar.upper() == "S":
+        plot_graph('yahoo')  # Plot with Yahoo style
+        plot_graph('brasil')  # Plot with Brasil style
+        break  # Exit the loop if the option is 'S'
+    elif option_visualizar.upper() == "N":
+        break  # Exit the loop if the option is 'N'
+    else:
+        print("Opção inválida! Digite S ou N para prosseguir.")
