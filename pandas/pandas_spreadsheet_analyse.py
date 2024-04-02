@@ -51,3 +51,8 @@ print("\nRemovendo coluna duplicada - codigo.")
 df_principal['variacao_rs'] = (df_principal['valor_final'] - df_principal['Var_inicial'])*df_principal['Qtde. Teórica']
 print("\nCriando nova coluna de analise - VARIACAO_RS.")
 print(df_principal)
+
+# Adjusting formatting for float type
+pd.options.display.float_format = '{:.2f}'.format
+print("\nAjustando formatação para tipo float.")
+print(df_principal)
