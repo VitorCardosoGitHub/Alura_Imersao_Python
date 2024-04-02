@@ -138,4 +138,9 @@ print("\nCriando novo DF apenas com valores que subiram")
 # Adding values by segment
 df_analise_segmento = df_principal_subiu.groupby('Segmento')['variacao_rs'].sum().reset_index()
 print("\nSomando valores por segmento")
-print(df_analise_segmento)
+#print(df_analise_segmento)
+
+# Grouping and summing segments 'subiu', 'estavel' e 'desceu'
+df_analise_saldo = df_principal.groupby('Resultado')['variacao_rs'].sum().reset_index()
+print("\nAgrupamento e soma dos segmentos \"subiu\", \"estavel\" e \"desceu\"")
+print(df_analise_saldo)
