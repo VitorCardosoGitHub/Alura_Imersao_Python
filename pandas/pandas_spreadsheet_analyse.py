@@ -22,5 +22,10 @@ print("\nImportando dados da aba \"ChatGPT\" da planilha \"acoes pura\"")
 #print(df_chatgpt.head(10))
 
 # filtering columns from "Principal" dataframe
-df_principal = df_principal[["Ativo",	"Data",	"Último (R$)",	"Var. Dia (%)"]].copy()
+df_principal = df_principal[["Ativo", "Data", "Último (R$)", "Var. Dia (%)"]].copy()
+#print(df_principal)
+
+# Renaming columns to make names more Python-friendly
+df_principal = df_principal.rename(columns={'Último (R$)':'valor_final','Var. Dia (%)':'var_dia_pct'}).copy()
 print(df_principal)
+
