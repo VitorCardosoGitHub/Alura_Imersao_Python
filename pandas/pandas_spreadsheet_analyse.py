@@ -35,4 +35,9 @@ print("\nRenomeando colunas para deixar nomes mais amigáveis ao python.")
 df_principal['Var_pct'] = df_principal['var_dia_pct']/100
 df_principal['Var_inicial'] = df_principal['valor_final']/(df_principal['Var_pct']+1)
 print("\nCriando novas colunas para analise - \"Var_pct\" e \"Var_inicial\".")
+#print(df_principal)
+
+# Merge between df_principal and df_total_acoes - Codigo
+df_principal = df_principal.merge(df_total_acoes, left_on='Ativo', right_on='Código',how='left')
+print("\nMerge entre df_principal e df_total_acoes - Codigo")
 print(df_principal)
