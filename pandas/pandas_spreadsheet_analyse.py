@@ -75,12 +75,12 @@ print("\nValidação lógica com if + nova coluna - verificando se a variação 
 # Merge with "ativo" vs "nome da empresa"
 df_principal = df_principal.merge(df_ticker, left_on='Ativo', right_on='Ticker',how='left')
 print("\nMerge with \"ativo\" vs \"nome da empresa\".")
-print(df_principal)
+#print(df_principal)
 
 # Removing column 'Ticker'
 df_principal = df_principal.drop(columns=['Ticker'])
 print("\nRemovendo coluna \"Ticker\".")
-print(df_principal)
+#print(df_principal)
 
 # Merge with 'nome' vs 'segmento'
 df_principal = df_principal.merge(df_chatgpt, left_on='Nome', right_on='Nome da Empresa',how='left')
@@ -90,7 +90,7 @@ print("\nMerge entre \"nome\" vs \"segmento\".")
 # Removing column 'Nome da Empresa'
 df_principal = df_principal.drop(columns=['Nome da Empresa'])
 print("\nRemovendo coluna \"Nome da Empresa\".")
-print(df_principal)
+#print(df_principal)
 
 # Renaming column 'Idade (em anos)'
 df_principal = df_principal.rename(columns={'Idade (em anos)':'Idade'})
@@ -103,4 +103,29 @@ df_principal['Cat_idade'] = df_principal['Idade'].apply(
     if x > 100 else ('Menos de 50' 
     if x < 50 else 'Entre 50 e 100'))
 print("\nValidação lógica com if + nova coluna - Conferindo idade da empresa.")
-print(df_principal)
+#print(df_principal)
+
+#Data Analyse
+print("\nAnalise dos dados:")
+
+# calculando o maior valor
+maior = df_principal['variacao_rs'].max()
+
+# Calculando o menor valor
+menor = df_principal['variacao_rs'].min()
+
+# calculando a media
+media = df_principal['variacao_rs'].mean()
+
+# calculando a media apenas de quem subiu
+media_subiu = df_principal[df_principal['Resultado'] == 'Subiu']['variacao_rs'].mean()
+
+# calculando a media apenas de quem subiu
+media_desceu = df_principal[df_principal['Resultado'] == 'Desceu']['variacao_rs'].mean()
+
+#imprimindo resultados
+print(f"Maior\tR$ {maior:,.2f}")
+print(f"Menor\tR$ {menor:,.2f}")
+print(f"Media\tR$ {media:,.2f}")
+print(f"Media de quem subiu\tR$ {media_subiu:,.2f}")
+print(f"Media de quem desceu\tR$ {media_desceu:,.2f}")
