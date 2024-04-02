@@ -32,3 +32,18 @@ modelo.fit(dados_prophet_treino)
 futuro = modelo.make_future_dataframe(periods=150)
 print("\nCriando futuras datas para previsão até o final de 2023.")
 previsao = modelo.predict(futuro)
+
+# Plotting training, testing, and prediction data
+
+print("\nPlotando os dados de treino, teste e previsões.")
+plt.figure(figsize=(14,8))
+plt.plot(dados_treino['Date'], dados_treino['Close'], label='Dados de Treino', color='blue')
+plt.plot(dados_teste['Date'], dados_teste['Close'], label='Dados Reais (Teste)', color='green')
+plt.plot(previsao['ds'], previsao['yhat'], label='Previsão', color='orange', linestyle='--')
+
+plt.axvline(dados_treino['Date'].max(), color='red', linestyle='--', label='Início da Previsão')
+plt.xlabel('Data')
+plt.ylabel('Preço de Fechamento')
+plt.title('Previsão de Preço de Fechamento vs Dados Reais')
+plt.legend()
+plt.show()
