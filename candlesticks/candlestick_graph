@@ -50,6 +50,8 @@ print("\nCriando novo df para trabalhar com gráfico de velas.")
 
 # ---------------------------------- Creating a Candlestick graph (in a hard way) ----------------------------------
 
+print("\nCriando um gráfico Candlestick (de uma maneira difícil)")
+
 fig, ax = plt.subplots(figsize=(15, 8)) # Defines the dimensions of the chart
 
 width = 0.7 # Set the width of the candles on the chart
@@ -107,6 +109,74 @@ while True:
     option_visualizar = input("\nDeseja visualizar o gráfico? \n(S) sim ou (N) nao: ")
     if option_visualizar.upper() == "S":
         plt.show()
+        break  # Exit the loop if the option is 'S'
+    elif option_visualizar.upper() == "N":
+        break  # Exit the loop if the option is 'N'
+    else:
+        print("Opção inválida! Digite S ou N para prosseguir.")
+
+# ---------- Creating two subplots: One for the candlestick chart and another for transaction volume. ----------]
+
+print("\nCriando dois subgráficos: um para o gráfico de velas e outro para o volume de transações.")
+
+'''
+# First, we create a figure that will contain our plots using make_subplots.
+# This allows us to have multiple charts in a single view.
+# Here, we have two subplots: One for the candlestick chart and another for transaction volume.
+'''
+...
+
+fig = make_subplots(rows=2, cols=1, shared_xaxes=True,
+                    vertical_spacing=0.1,
+                    subplot_titles=('Candlesticks', 'Volume Transacional'),
+                    row_width=[0.2, 0.7])
+
+'''
+# In the candlestick chart, each candle represents a trading day,
+# showing the opening, closing, maximum and minimum price. Let's add this graph to our figure.
+'''
+
+# Adding the candlestick chart
+fig.add_trace(go.Candlestick(x=df.index,
+                             open=df['Abertura'],
+                             high=df['Maximo'],
+                             low=df['Minimo'],
+                             close=df['Fechamento'],
+                             name='Candlestick'),
+                             row=1, col=1)
+
+# Adding the moving averages
+# Also adding moving averages to the same subplot for trend analysis
+fig.add_trace(go.Scatter(x=df.index,
+                         y=df['MA7'],
+                         mode='lines',
+                         name='MA7 - Média Móvel 7 Dias'),
+                         row=1, col=1)
+
+fig.add_trace(go.Scatter(x=df.index,
+                         y=df['MA14'],
+                         mode='lines',
+                         name='MA14 - Média Móvel 14 Dias'),
+                         row=1, col=1)
+
+# Adding the bar chart for volume
+# We then create a bar chart for transaction volume, which gives us an idea of the trading activity for that day
+fig.add_trace(go.Bar(x=df.index,
+                     y=df['Volume'],
+                     name='Volume'),
+                     row=2, col=1)
+
+# Updating layout
+# Finally, we configure the figure layout, adjusting titles, formatting axis and other settings to make the graph clear and readable
+fig.update_layout(yaxis_title='Preço',
+                  xaxis_rangeslider_visible = False,
+                  width=1100, height=600)
+
+# Loop to ensure valid user input
+while True:
+    option_visualizar = input("\nDeseja visualizar o gráfico? \n(S) sim ou (N) nao: ")
+    if option_visualizar.upper() == "S":
+        fig.show()
         break  # Exit the loop if the option is 'S'
     elif option_visualizar.upper() == "N":
         break  # Exit the loop if the option is 'N'
