@@ -17,4 +17,13 @@ dados_teste = dados[dados['Date'] >= '2023-07-31']
 # Preparing data for FBProphet
 dados_prophet_treino = dados_treino[['Date', 'Close']].rename(columns={'Date': 'ds', 'Close': 'y'})
 print("\nPreparando os dados para o FBProphet.")
-print(dados_prophet_treino)
+#print(dados_prophet_treino)
+
+#Training and creating the model
+modelo = Prophet( weekly_seasonality=True,
+                 yearly_seasonality=True,
+                  daily_seasonality=False)
+
+modelo.add_country_holidays(country_name='US')
+print("\nTreinando e criando o modelo.")
+modelo.fit(dados_prophet_treino)
