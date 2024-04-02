@@ -105,22 +105,22 @@ df_principal['Cat_idade'] = df_principal['Idade'].apply(
 print("\nValidação lógica com if + nova coluna - Conferindo idade da empresa.")
 #print(df_principal)
 
-#Data Analyse
+#Data Analyse of 'df principal'
 print("\nAnalise dos dados:")
 
-# calculando o maior valor
+# calculating the max value
 maior = df_principal['variacao_rs'].max()
 
-# Calculando o menor valor
+# calculating the min value
 menor = df_principal['variacao_rs'].min()
 
-# calculando a media
+# calculating the mean value
 media = df_principal['variacao_rs'].mean()
 
-# calculando a media apenas de quem subiu
+# calculating the average only of those who 'subiu'
 media_subiu = df_principal[df_principal['Resultado'] == 'Subiu']['variacao_rs'].mean()
 
-# calculando a media apenas de quem subiu
+# calculating the average only of those who 'desceu'
 media_desceu = df_principal[df_principal['Resultado'] == 'Desceu']['variacao_rs'].mean()
 
 #imprimindo resultados
@@ -129,3 +129,8 @@ print(f"Menor\tR$ {menor:,.2f}")
 print(f"Media\tR$ {media:,.2f}")
 print(f"Media de quem subiu\tR$ {media_subiu:,.2f}")
 print(f"Media de quem desceu\tR$ {media_desceu:,.2f}")
+
+# Creating a new DF only with 'Subiu' values 
+df_principal_subiu = df_principal[df_principal['Resultado'] == 'Subiu']
+print("\nCriando novo DF apenas com valores que subiram")
+#print(df_principal_subiu)
