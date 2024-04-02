@@ -60,4 +60,9 @@ print("\nAjustando formatação para tipo float.")
 # Adjusting formatting of the "Qtde. Teorica" column for int
 df_principal['Qtde. Teórica'] = df_principal['Qtde. Teórica'].astype(int)
 print("\nAjustando formatacao da coluna \"Qtde. Teorica\" para int.")
-print(df_principal)
+#print(df_principal)
+
+# Adjusting the name of the "Qtde. Teorica" column 
+df_principal = df_principal.rename(columns={'Qtde. Teórica':'Qtd_teorica'}).copy()
+print("\nAjustando o nome da coluna \"Qtde. Teorica\".")
+#print(df_principal)
