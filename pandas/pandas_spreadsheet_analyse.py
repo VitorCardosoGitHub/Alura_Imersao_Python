@@ -143,4 +143,9 @@ print("\nSomando valores por segmento")
 # Grouping and summing segments 'subiu', 'estavel' e 'desceu'
 df_analise_saldo = df_principal.groupby('Resultado')['variacao_rs'].sum().reset_index()
 print("\nAgrupamento e soma dos segmentos \"subiu\", \"estavel\" e \"desceu\"")
-print(df_analise_saldo)
+#print(df_analise_saldo)
+
+# 
+fig = px.bar(df_analise_saldo, x='Resultado', y='variacao_rs', text='variacao_rs', title='Variacao Reais por Resultado')
+print("\nGrafico de analise da \"Variacao em Reais por Resultado\"")
+fig.show()
