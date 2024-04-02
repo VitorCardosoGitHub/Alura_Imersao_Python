@@ -20,3 +20,7 @@ print("\nImportando dados da aba \"Ticker\" da planilha \"acoes pura\"")
 df_chatgpt = pd.read_excel(caminho_arquivo, sheet_name="ChatGPT")
 print("\nImportando dados da aba \"ChatGPT\" da planilha \"acoes pura\"")
 #print(df_chatgpt.head(10))
+
+# filtering columns from "Principal" dataframe
+df_principal = df_principal[["Ativo",	"Data",	"Último (R$)",	"Var. Dia (%)"]].copy()
+print(df_principal)
