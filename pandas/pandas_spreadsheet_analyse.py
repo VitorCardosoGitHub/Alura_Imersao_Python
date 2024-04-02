@@ -76,3 +76,8 @@ print("\nValidação lógica com if + nova coluna - verificando se a variação 
 df_principal = df_principal.merge(df_ticker, left_on='Ativo', right_on='Ticker',how='left')
 print("\nMerge with \"ativo\" vs \"nome da empresa\".")
 print(df_principal)
+
+# Removing column 'Ticker'
+df_principal = df_principal.drop(columns=['Ticker'])
+print("\nRemovendo coluna \"Ticker\".")
+print(df_principal)
