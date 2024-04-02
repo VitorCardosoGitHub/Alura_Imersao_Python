@@ -34,7 +34,6 @@ while True:
         plt.show()
         break  # Exit the loop if the option is 'Y'
     elif option_visualizar.upper() == "N":
-        print("\n")
         break  # Exit the loop if the option is 'N'
     else:
         print("Opção inválida! Digite S ou N para prosseguir.")
@@ -46,4 +45,70 @@ df['Data'] = df.index # Convertendo o índice em uma coluna de data
 # Convertendo as datas para o formato numérico de matplotlib
 # Isso é necessário para que p Matplotlib possa plotar as datas corretamente no gráfico
 df['Data'] = df['Data'].apply(mdates.date2num)
-print(df)
+print("\nCriando novo df para trabalhar com gráfico de velas.")
+#print(df)
+
+# ---------------------------------- Creating a Candlestick graph (in a hard way) ----------------------------------
+
+fig, ax = plt.subplots(figsize=(15, 8)) # Defines the dimensions of the chart
+
+width = 0.7 # Set the width of the candles on the chart
+
+for i in range(len(df)):
+  # Determining the color of the candle
+  # If the closing price is higher than the opening, the candle is green (the share increased in value that day).
+  # If it is smaller, the candle is red (the share has devalued).
+  if df['Fechamento'].iloc[i] > df['Abertura'].iloc[i]:
+    color = 'green'
+  else:
+    color = 'red'
+
+  # Drawing the vertical line of the candle (wick)
+  # This line shows the maximum (Top of the line) and minimum (base of the line) prices of the day.
+  # We use 'ax.plot' to draw a vertical line.
+  # [df['Data'].iloc[i], df['Data'].iloc[i]] defines the point x of the line (the date), and [df['Minimum'].iloc[i] , df['Maximo'].iloc[i]]
+  ax.plot([df['Data'].iloc[i], df['Data'].iloc[i]],
+          [df['Minimo'].iloc[i], df['Maximo'].iloc[i]],
+          color = color,
+          linewidth = 1)
+
+
+  ax.add_patch(plt.Rectangle((df['Data'].iloc[i] - width/2, min(df['Abertura'].iloc[i], df['Fechamento'].iloc[i])),
+                             width,
+                             abs(df['Fechamento'].iloc[i] - df['Abertura'].iloc[i]),
+                             facecolor=color))
+
+df['MA7'] = df['Fechamento'].rolling(window=7).mean()
+df['MA14'] = df['Fechamento'].rolling(window=14).mean()
+
+# Plotting the moving averages
+ax.plot(df['Data'], df['MA7'], color='orange', label='Média Móvel 7 dias') # 7-day average
+ax.plot(df['Data'], df['MA14'], color='yellow', label='Média Móvel 14 dias') # 14-day average
+
+# Adding subtitles
+ax.legend()
+
+# Formatting the x-axis to show dates
+# We configure the date format and rotation for better readability
+ax.xaxis_date() # The ax.xaxis_date() method is used to tell Matplotlib which dates are being used on the x-axis
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+plt.xticks(rotation=45)
+
+# Adding a title and label for the x and y axes
+plt.title("Gráfico de Candlestick - PETR$.SA com matplotlib")
+plt.xlabel("Data")
+plt.ylabel("Preço")
+
+# Adding a grid to make it easier to view values
+plt.grid(True)
+
+# Loop to ensure valid user input
+while True:
+    option_visualizar = input("\nDeseja visualizar o gráfico? \n(S) sim ou (N) nao: ")
+    if option_visualizar.upper() == "S":
+        plt.show()
+        break  # Exit the loop if the option is 'S'
+    elif option_visualizar.upper() == "N":
+        break  # Exit the loop if the option is 'N'
+    else:
+        print("Opção inválida! Digite S ou N para prosseguir.")
