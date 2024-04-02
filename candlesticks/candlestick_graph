@@ -21,20 +21,29 @@ dados = dados.rename_axis('Data')
 print("\nRenomeando o índice.")
 #print(dados)
 
-# Graph - Variation in the 'Fechamento' column
+# Graph - Variation in the 'Fechamento' column and user input validation
 dados['Fechamento'].plot(figsize=(10,6)) # Criando o gráfico com largura e altura
 plt.title('Variação do preço (Fechamento) por data', fontsize=16) # Inserindo título ao gráfico
 plt.legend(['Fechamento']) # Inserindo legenda
 print("\nGráfico – Variação na coluna \"Fechamento\".")
 
-# Loop para garantir uma entrada válida do usuário
+# Loop to ensure valid user input
 while True:
     option_visualizar = input("\nDeseja visualizar o gráfico? \n(S) sim ou (N) nao: ")
     if option_visualizar.upper() == "S":
         plt.show()
-        break  # Sai do loop se a opção for 'S'
+        break  # Exit the loop if the option is 'Y'
     elif option_visualizar.upper() == "N":
         print("\n")
-        break  # Sai do loop se a opção for 'N'
+        break  # Exit the loop if the option is 'N'
     else:
         print("Opção inválida! Digite S ou N para prosseguir.")
+
+# Creating new df to work with candlestick chart
+df = dados.head(60).copy()
+
+df['Data'] = df.index # Convertendo o índice em uma coluna de data
+# Convertendo as datas para o formato numérico de matplotlib
+# Isso é necessário para que p Matplotlib possa plotar as datas corretamente no gráfico
+df['Data'] = df['Data'].apply(mdates.date2num)
+print(df)
