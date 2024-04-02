@@ -81,3 +81,8 @@ print(df_principal)
 df_principal = df_principal.drop(columns=['Ticker'])
 print("\nRemovendo coluna \"Ticker\".")
 print(df_principal)
+
+# Merge with "nome" vs "segmento"
+df_principal = df_principal.merge(df_chatgpt, left_on='Nome', right_on='Nome da Empresa',how='left')
+print("\nMerge entre \"nome\" vs \"segmento\".")
+#print(df_principal)
