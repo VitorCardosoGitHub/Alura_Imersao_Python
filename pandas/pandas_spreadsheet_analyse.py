@@ -66,3 +66,8 @@ print("\nAjustando formatacao da coluna \"Qtde. Teorica\" para int.")
 df_principal = df_principal.rename(columns={'Qtde. Teórica':'Qtd_teorica'}).copy()
 print("\nAjustando o nome da coluna \"Qtde. Teorica\".")
 #print(df_principal)
+
+# Logical validation with if + new column - check if the variation has gone up "Subiu" or down "Desceu"
+df_principal['Resultado'] = df_principal['variacao_rs'].apply(lambda x: 'Subiu' if x > 0 else ('Desceu' if x < 0 else 'Estavel'))
+print("\nValidação lógica com if + nova coluna - verificando se a variação subiu ou desceu.")
+print(df_principal)
