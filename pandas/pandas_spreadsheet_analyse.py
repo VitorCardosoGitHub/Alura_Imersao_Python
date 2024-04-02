@@ -39,5 +39,10 @@ print("\nCriando novas colunas para analise - \"Var_pct\" e \"Var_inicial\".")
 
 # Merge between df_principal and df_total_acoes - Codigo
 df_principal = df_principal.merge(df_total_acoes, left_on='Ativo', right_on='Código',how='left')
-print("\nMerge entre df_principal e df_total_acoes - Codigo")
-print(df_principal)
+print("\nMerge entre df_principal e df_total_acoes - Codigo.")
+#print(df_principal)
+
+# Removing duplicate column - codigo
+df_principal = df_principal.drop(columns=['Código'])
+print("\nRemovendo coluna duplicada - codigo.")
+#print(df_principal)
