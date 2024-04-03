@@ -50,10 +50,10 @@ Se tiver dúvidas, sugestões ou quiser contribuir para o projeto, sinta-se à v
 
 Gostaria de agradecer a:
 
-- [Alura](https://www.alura.com.br/) por oferecer essa imersão incrível
-- [Fabrício Carraro](https://www.linkedin.com/in/fabriciocarraro/)
-- [Matheus Freitas](https://www.linkedin.com/in/matheusfsa/)
-- [David Camurça](https://www.linkedin.com/in/davidscamurca/)
+- [Alura](https://www.alura.com.br/) por oferecer essa imersão incrível;
+- [Fabrício Carraro](https://www.linkedin.com/in/fabriciocarraro/), Program Manager da [Alura](https://www.alura.com.br/);
+- [Matheus Freitas](https://www.linkedin.com/in/matheusfsa/), Analista de Dados na [XP Investimentos](https://www.linkedin.com/company/xpinvestimentos/);
+- [David Camurça](https://www.linkedin.com/in/davidscamurca/), Analista de Dados na [Bemol](https://www.linkedin.com/company/bemol/).
 
 e a todos os desenvolvedores e colaboradores que contribuíram para tornar este projeto possível.
 
