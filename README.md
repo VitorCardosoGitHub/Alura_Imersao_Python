@@ -28,11 +28,11 @@ No código de Machine Learning, exploramos a previsão de preços de ações usa
 
 ## Bibliotecas Utilizadas
 
-| Tópico        | Bibliotecas                                  |
-|---------------|----------------------------------------------|
-| Pandas        | Python, Pandas, Plotly                       |
-| Candlesticks  | Python, matplotlib, mplfinance, Plotly       |
-| Machine Learning | Python, Prophet, yfinance                 |
+| Tópico        | Bibliotecas                          |
+|---------------|--------------------------------------|
+| Pandas        | Pandas, Plotly                       |
+| Candlesticks  | matplotlib, mplfinance, Plotly       |
+| Machine Learning | Prophet, yfinance                 |
 
 Para instalar as bibliotecas necessárias, utilize os seguintes comandos `pip install`:
 ```bash
@@ -42,7 +42,7 @@ pip install pandas plotly matplotlib mplfinance yfinance prophet
 
 Se tiver dúvidas, sugestões ou quiser contribuir para o projeto, sinta-se à vontade para entrar em contato através do:
 
-- LinkedIn: www.linkedin.com/in/vitor-cardoso-santos
+- LinkedIn: [Vitor Cardoso](www.linkedin.com/in/vitor-cardoso-santos) 
 - Instagram: @The_Vitaao
 
 
