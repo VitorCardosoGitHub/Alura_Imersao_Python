@@ -51,9 +51,9 @@ Se tiver dúvidas, sugestões ou quiser contribuir para o projeto, sinta-se à v
 Gostaria de agradecer a:
 
 - [Alura](https://www.alura.com.br/) por oferecer essa imersão incrível
-- Fabrício Carraro
-- Matheus Freitas
-- David Camurça
+- [Fabrício Carraro](https://www.linkedin.com/in/fabriciocarraro/)
+- [Matheus Freitas](https://www.linkedin.com/in/matheusfsa/)
+- [David Camurça](https://www.linkedin.com/in/davidscamurca/)
 
 e a todos os desenvolvedores e colaboradores que contribuíram para tornar este projeto possível.
 
