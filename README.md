@@ -57,3 +57,8 @@ Gostaria de agradecer a:
 
 e a todos os desenvolvedores e colaboradores que contribuíram para tornar este projeto possível.
 
+## Certificado de conclusão e participação do evento
+
+<img width="881" alt="Certificado Imersão Python Alura" src="https://github.com/VitorCardosoGitHub/Alura_Imersao_Python/assets/164551328/c01ab3fe-66da-46da-8b80-d71b9205f6f8">
+
+
